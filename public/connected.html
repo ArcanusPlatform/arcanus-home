@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arcanus Connected</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="page">
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand">
+          <img class="brand-logo" src="/Applications/Arcanus/ArcanusHome/public/arcanus-logo.png" alt="Arcanus">
+          <div>
+            <p class="eyebrow">Local Command</p>
+            <h1>Arcanus Home</h1>
+          </div>
+        </div>
+
+        <nav class="nav-list" aria-label="Primary">
+          <a href="/" class="nav-link">Overview</a>
+          <a href="/#modules" class="nav-link">Modules</a>
+          <a href="/connected" class="nav-link active">Connected</a>
+        </nav>
+
+      <div class="sidebar-status">
+        <span id="sidebarVaultDot" class="status-dot"></span>
+        <div>
+          <strong id="sidebarVaultTitle">Checking vault</strong>
+          <span id="sidebarVaultPath">/media/arcanus/ArcanusVault</span>
+        </div>
+      </div>
+    </aside>
+
+    <main class="workspace">
+      <header class="topbar">
+        <div class="topbar-left">
+          <img class="brand-logo" src="/Applications/Arcanus/ArcanusHome/public/arcanus-logo.png" alt="Arcanus">
+          <div>
+            <p class="eyebrow">Connected workspace</p>
+            <h1>Vault and events</h1>
+          </div>
+        </div>
+        <div class="topbar-right top-actions">
+          <button id="refreshButton" class="icon-button" type="button" title="Refresh status">Refresh</button>
+          <a class="button secondary" href="/">Home</a>
+        </div>
+      </header>
+
+      <section class="metrics-strip" aria-label="Vault metrics">
+        <div>
+          <span>Files</span>
+          <strong id="metricFiles">-</strong>
+        </div>
+        <div>
+          <span>Directories</span>
+          <strong id="metricDirs">-</strong>
+        </div>
+        <div>
+          <span>Disk used</span>
+          <strong id="metricDisk">-</strong>
+        </div>
+        <div>
+          <span>Last scan</span>
+          <strong id="metricScan">-</strong>
+        </div>
+      </section>
+
+      <section class="vault-section" id="vault">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Vault browser</p>
+            <h2 id="vaultPathTitle">Vault root</h2>
+          </div>
+          <button id="upButton" class="button secondary" type="button" disabled>Up</button>
+        </div>
+
+        <div class="file-table-wrap">
+          <table class="file-table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Size</th>
+                <th>Modified</th>
+              </tr>
+            </thead>
+            <tbody id="fileTableBody">
+              <tr><td colspan="4">Loading vault entries...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="events-section" id="events">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Activity</p>
+            <h2>Connected events</h2>
+          </div>
+        </div>
+        <div class="event-log" id="eventLog" aria-live="polite"></div>
+      </section>
+    </main>
+  </div>
+
+  </div>
+  <div class="toast-region" id="toastRegion" aria-live="polite"></div>
+  <script src="/app.js" type="module"></script>
+</body>
+</html>
